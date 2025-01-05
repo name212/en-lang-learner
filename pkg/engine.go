@@ -15,6 +15,10 @@ type Outputer interface {
 	OutPrompt() error
 }
 
+type AnswerWaiter interface {
+	WaitAnswer() (string, error)
+}
+
 type Stats struct {
 	TotalTasks int
 	OkTaksks   int
@@ -27,14 +31,17 @@ type Engine struct {
 	tts      TextToSpeech
 	lession  Lession
 	outputer Outputer
+	waiter   AnswerWaiter
 }
 
-func NewEngine(lession Lession, tts TextToSpeech, outputer Outputer) *Engine {
+func NewEngine(lession Lession, tts TextToSpeech, outputer Outputer, waiter AnswerWaiter) *Engine {
 	return &Engine{
 		tts:      tts,
 		lession:  lession,
 		outputer: outputer,
-		stats:    &Stats{},
+		waiter:   waiter,
+
+		stats: &Stats{},
 	}
 }
 
@@ -73,7 +80,7 @@ func (e *Engine) Run() (*Stats, error) {
 			return e.stats, err
 		}
 
-		answerFromUser, err := task.WaitAnswer()
+		answerFromUser, err := e.waiter.WaitAnswer()
 		if err != nil {
 			return e.stats, err
 		}

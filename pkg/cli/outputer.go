@@ -4,6 +4,10 @@ import "fmt"
 
 type Outputer struct{}
 
+func NewOutputer() *Outputer {
+	return &Outputer{}
+}
+
 func (o Outputer) OutTarget(t string) error {
 	fmt.Printf("Translate: %s\n", t)
 	return nil

@@ -23,9 +23,11 @@ func (r *runner) exec(cmdName string, args ...string) ([]byte, error) {
 	cmd.Stdout = stdoutBuf
 	cmd.Stderr = stderrBuf
 
-	refVal := reflect.ValueOf(r.stdin)
-	if !refVal.IsNil() {
-		cmd.Stdin = r.stdin
+	if r.stdin != nil {
+		refVal := reflect.ValueOf(r.stdin)
+		if !refVal.IsNil() {
+			cmd.Stdin = r.stdin
+		}
 	}
 
 	err := cmd.Run()

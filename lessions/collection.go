@@ -3,6 +3,7 @@ package lessions
 import (
 	"fmt"
 
+	lst "github.com/name212/en-lang-learner/lessions/list"
 	"github.com/name212/en-lang-learner/pkg"
 )
 
@@ -14,9 +15,14 @@ type Item struct {
 
 var List = []Item{
 	Item{
-		Name:        "test",
+		Name:        "test-linear",
 		Description: "Lession for test purposes",
-		Lession:     newTestLession,
+		Lession:     lst.NewTestLinearLession,
+	},
+	Item{
+		Name:        "test-bidirectionalrandom",
+		Description: "Lession for test purposes",
+		Lession:     lst.NewTestBidirectionalRandomLession,
 	},
 }
 

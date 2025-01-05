@@ -14,7 +14,7 @@ import (
 func printLessionsAndExit() {
 	fmt.Printf("Lessions list:\n")
 	for _, l := range lessions.List {
-		fmt.Printf("\t%-4s - %s\n", l.Name, l.Description)
+		fmt.Printf("\t%s - %s\n", l.Name, l.Description)
 	}
 
 	os.Exit(0)

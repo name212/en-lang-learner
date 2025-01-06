@@ -15,6 +15,11 @@ type Item struct {
 
 var List = []Item{
 	Item{
+		Name:        "adverbs",
+		Description: "Adverbs repeating",
+		Lession:     lst.NewAdverbsLession,
+	},
+	Item{
 		Name:        "test-linear",
 		Description: "Lession for test purposes",
 		Lession:     lst.NewTestLinearLession,

@@ -1,4 +1,4 @@
-package tts
+package cli
 
 import (
 	"bytes"
@@ -8,15 +8,20 @@ import (
 	"reflect"
 )
 
-type runner struct {
+type Executor struct {
 	stdin io.Reader
 }
 
-func newRunner() *runner {
-	return &runner{}
+func NewExecutor() *Executor {
+	return &Executor{}
 }
 
-func (r *runner) exec(cmdName string, args ...string) ([]byte, error) {
+func (r *Executor) WithStdin(rd io.Reader) *Executor {
+	r.stdin = rd
+	return r
+}
+
+func (r *Executor) Exec(cmdName string, args ...string) ([]byte, error) {
 	cmd := exec.Command(cmdName, args...)
 	stdoutBuf := &bytes.Buffer{}
 	stderrBuf := &bytes.Buffer{}

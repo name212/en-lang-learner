@@ -3,6 +3,7 @@ package pkg
 import (
 	"errors"
 	"strings"
+	"time"
 )
 
 type TextToSpeech interface {
@@ -82,6 +83,9 @@ func (e *Engine) Run() (*Stats, error) {
 
 		answerFromUser, err := e.waiter.WaitAnswer()
 		if err != nil {
+			if errors.Is(err, ErrStopByUser) {
+				break
+			}
 			return e.stats, err
 		}
 
@@ -102,6 +106,9 @@ func (e *Engine) Run() (*Stats, error) {
 		if err != nil {
 			return e.stats, err
 		}
+
+		// prevent voice overlay
+		time.Sleep(1 * time.Second)
 	}
 
 	return e.stats, nil

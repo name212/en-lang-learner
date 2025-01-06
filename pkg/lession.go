@@ -3,6 +3,7 @@ package pkg
 import "errors"
 
 var ErrNoNextTask = errors.New("Do not have tasks")
+var ErrStopByUser = errors.New("Lession stopped by user")
 
 type Task interface {
 	Target() string

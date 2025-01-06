@@ -1,5 +1,7 @@
 package tts
 
+import "github.com/name212/en-lang-learner/pkg/cli"
+
 type EspeakNGSpeetcher struct{}
 
 func NewEspeakNGSpeetcher() *EspeakNGSpeetcher {
@@ -7,6 +9,6 @@ func NewEspeakNGSpeetcher() *EspeakNGSpeetcher {
 }
 
 func (s EspeakNGSpeetcher) Say(text string) error {
-	_, err := newRunner().exec("espeak-ng", text)
+	_, err := cli.NewExecutor().Exec("espeak-ng", text)
 	return err
 }

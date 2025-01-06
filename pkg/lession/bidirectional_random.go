@@ -37,3 +37,24 @@ func NewBiderictionalRandomLession(tasks []pkg.Task) *BiderictionalRandomLession
 		},
 	}
 }
+
+type BiderictionalWithExceptionsRandomLession struct {
+	*LinearLession
+}
+
+func NewBiderictionalWithExceptionsRandomLession(tasks []pkg.Task, exceptionsTasks []pkg.Task) *BiderictionalRandomLession {
+	randomizeTasks := extendAndRandomTasks(tasks)
+	for _, t := range exceptionsTasks {
+		randomizeTasks = append(randomizeTasks, pkg.NewBaseTask(t.Target(), t.Answer()))
+	}
+
+	rand.Shuffle(len(randomizeTasks), func(i, j int) {
+		randomizeTasks[i], randomizeTasks[j] = randomizeTasks[j], randomizeTasks[i]
+	})
+
+	return &BiderictionalRandomLession{
+		LinearLession: &LinearLession{
+			tasks: randomizeTasks,
+		},
+	}
+}

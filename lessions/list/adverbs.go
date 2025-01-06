@@ -58,7 +58,7 @@ func NewAdverbsLession() pkg.Lession {
 		pkg.NewBaseTask("my", "мой"),
 		pkg.NewBaseTask("his", "его"),
 		pkg.NewBaseTask("its", "его, её"),
-		pkg.NewBaseTask("our", "наше"),
+		pkg.NewBaseTask("our", "наш"),
 		pkg.NewBaseTask("their", "их"),
 	}, []pkg.Task{
 		pkg.NewBaseTask("ты", "you"),

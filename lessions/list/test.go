@@ -1,4 +1,4 @@
-package lessions
+package list
 
 import (
 	"github.com/name212/en-lang-learner/pkg"

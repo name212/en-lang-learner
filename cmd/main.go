@@ -49,7 +49,7 @@ func main() {
 		return
 	}
 
-	tts := tts.NewEspeakNGSpeetcher()
+	tts := tts.NewSpdSayNGSpeetcher()
 	outputer := cli.NewOutputer()
 	waiter := cli.NewAnswerWaiter()
 

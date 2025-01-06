@@ -57,7 +57,7 @@ func NewAdverbsLession() pkg.Lession {
 
 		pkg.NewBaseTask("my", "мой"),
 		pkg.NewBaseTask("his", "его"),
-		pkg.NewBaseTask("its", "его, ёё"),
+		pkg.NewBaseTask("its", "его, её"),
 		pkg.NewBaseTask("our", "наше"),
 		pkg.NewBaseTask("their", "их"),
 	}, []pkg.Task{
@@ -81,7 +81,7 @@ func NewAdverbsLession() pkg.Lession {
 
 		pkg.NewBaseTask("myself", "I"),
 		pkg.NewBaseTask("yourself", "you"),
-		pkg.NewBaseTask("himself", "hе"),
+		pkg.NewBaseTask("himself", "he"),
 		pkg.NewBaseTask("herself", "she"),
 		pkg.NewBaseTask("itself", "it"),
 		pkg.NewBaseTask("ourselves", "we"),
